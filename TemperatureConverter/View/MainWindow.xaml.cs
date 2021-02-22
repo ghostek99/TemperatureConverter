@@ -27,7 +27,10 @@ namespace View
 
         private void ConvertToCelsius(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "You clicked the button";
+            string fahrenheit = textBox.Text;
+            var val = double.Parse(fahrenheit);
+            var celsius = (val - 32) * 5 / 9;
+            textBox.Text = celsius.ToString();
         }
     }
 }
