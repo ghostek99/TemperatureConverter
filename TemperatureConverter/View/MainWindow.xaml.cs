@@ -21,30 +21,13 @@ namespace View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        private double temperatureInKelvin;
-
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
+            this.DataContext = new ConverterViewModel();
         }
-
-        public double TemperatureInKelvin 
-        {
-            get
-            {
-                return temperatureInKelvin;
-            }
-            set
-            {
-                temperatureInKelvin = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TemperatureInKelvin)));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class TempConverter : IValueConverter
