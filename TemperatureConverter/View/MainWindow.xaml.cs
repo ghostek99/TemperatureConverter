@@ -27,41 +27,15 @@ namespace View
         }
     }
 
-    public class CelsiusConverter : IValueConverter
+    public class TempConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var kelvin = (double)value;
-            var celsius = kelvin - 273.15;
 
-            return celsius.ToString();
+        public TempConverter()
+        {
+            
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var celsius = double.Parse((string)value);
-            var kelvin = celsius + 273.15;
-
-            return kelvin;
-        }
-    }
-
-    public class FahrenheitConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var kelvin = (double)value;
-            var fahrenheit = (kelvin - 273.15) * 18 / 10 + 32;
-
-            return fahrenheit.ToString();
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var fahrenheit = double.Parse((string)value);
-            var kelvin = 273.15 + ((fahrenheit - 32.0) * (5.0 / 9.0));
-
-            return kelvin;
-        }
+        public ITemperatureScale Scale { get; set; }
+       
     }
 }
