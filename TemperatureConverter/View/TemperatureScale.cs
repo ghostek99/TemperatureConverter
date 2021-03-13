@@ -32,4 +32,25 @@ namespace View
             return temperature;
         }
     }
+
+    class CelsiusTemperatureScale : ITemperatureScale
+    {
+    
+        public CelsiusTemperatureScale()
+        {
+            this.Name = "CelsiusTemperatureScale";
+        }
+
+        public string Name { get; }
+
+        public double ConvertFromKelvin(double temperature)
+        {
+            return temperature - 273.15;
+        }
+
+        public double ConvertToKelvin(double temperature)
+        {
+            return temperature + 273.15;
+        }
+    }
 }
