@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View
+namespace Model
 {
     public interface ITemperatureScale
     {
@@ -13,11 +13,11 @@ namespace View
         double ConvertFromKelvin(double temperature);
     }
 
-    class KelvinTemperatureScale : ITemperatureScale
+    public class KelvinTemperatureScale : ITemperatureScale
     {
         public KelvinTemperatureScale()
         {
-            this.Name = "KelvinTemperatureScale";
+            this.Name = "Kelvin";
         }
 
         public string Name { get; }
@@ -33,12 +33,12 @@ namespace View
         }
     }
 
-    class CelsiusTemperatureScale : ITemperatureScale
+    public class CelsiusTemperatureScale : ITemperatureScale
     {
     
         public CelsiusTemperatureScale()
         {
-            this.Name = "CelsiusTemperatureScale";
+            this.Name = "Celsius";
         }
 
         public string Name { get; }
@@ -54,12 +54,12 @@ namespace View
         }
     }
 
-    class FahrenheitTemperatureScale : ITemperatureScale
+    public class FahrenheitTemperatureScale : ITemperatureScale
     {
 
         public FahrenheitTemperatureScale()
         {
-            this.Name = "FahrenheitTemperatureScale";
+            this.Name = "Fahrenheit";
         }
 
         public string Name { get; }

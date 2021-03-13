@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Model;
 
-namespace View
+namespace ViewModel
 {
     public class ConverterViewModel : INotifyPropertyChanged
     {
@@ -37,6 +38,16 @@ namespace View
 
         public TemperatureScaleViewModel Fahrenheit { get; set; }
 
+        public IEnumerable<TemperatureScaleViewModel> Scales
+        {
+            get
+            {
+                yield return Celsius;
+                yield return Fahrenheit;
+                yield return Kelvin;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 
@@ -59,7 +70,7 @@ namespace View
         {
             get
             {
-                return Temperature;
+                return scale.ConvertFromKelvin(parent.TemperatureInKelvin);
             }
             set
             {

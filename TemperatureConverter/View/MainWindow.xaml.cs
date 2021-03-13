@@ -15,12 +15,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.ComponentModel;
+using ViewModel;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,24 +27,4 @@ namespace View
             this.DataContext = new ConverterViewModel();
         }
     }
-
-    public class TempConverter : IValueConverter
-    {
-        public ITemperatureScale Scale { get; set; }
-
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var kelvin = (double)value;
-
-            return this.Scale.ConvertFromKelvin(kelvin).ToString();
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var temperature = double.Parse((string)value);
-
-            return this.Scale.ConvertToKelvin(temperature);
-        }
-    }
-
 }
