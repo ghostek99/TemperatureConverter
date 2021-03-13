@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
 using Model;
 
 namespace ViewModel
@@ -13,6 +13,7 @@ namespace ViewModel
         public ConverterViewModel()
         {
             this.TemperatureInKelvin = new Cell<double>();
+
             this.Kelvin = new TemperatureScaleViewModel(this, new KelvinTemperatureScale());
             this.Celsius = new TemperatureScaleViewModel(this, new CelsiusTemperatureScale());
             this.Fahrenheit = new TemperatureScaleViewModel(this, new FahrenheitTemperatureScale());
@@ -20,11 +21,11 @@ namespace ViewModel
 
         public Cell<double> TemperatureInKelvin { get; }
 
-        public TemperatureScaleViewModel Kelvin { get; set; }
+        public TemperatureScaleViewModel Kelvin { get; }
 
-        public TemperatureScaleViewModel Celsius { get; set; }
+        public TemperatureScaleViewModel Celsius { get; }
 
-        public TemperatureScaleViewModel Fahrenheit { get; set; }
+        public TemperatureScaleViewModel Fahrenheit { get; }
 
         public IEnumerable<TemperatureScaleViewModel> Scales
         {
@@ -39,20 +40,20 @@ namespace ViewModel
 
     public class TemperatureScaleViewModel
     {
-        private ConverterViewModel parent;
-        private ITemperatureScale scale;
+        private readonly ConverterViewModel parent;
 
-        public TemperatureScaleViewModel(ConverterViewModel parent, ITemperatureScale scale)
+        private readonly ITemperatureScale temperatureScale;
+
+        public TemperatureScaleViewModel(ConverterViewModel parent, ITemperatureScale temperatureScale)
         {
             this.parent = parent;
-            this.scale = scale;
+            this.temperatureScale = temperatureScale;
 
-            this.Temperature = this.parent.TemperatureInKelvin.Derive(kelvin => scale.ConvertFromKelvin(kelvin));
+            this.Temperature = this.parent.TemperatureInKelvin.Derive(kelvin => temperatureScale.ConvertFromKelvin(kelvin));
         }
 
-        public string Name => scale.Name;
+        public string Name => temperatureScale.Name;
 
         public Cell<double> Temperature { get; }
-
     }
 }

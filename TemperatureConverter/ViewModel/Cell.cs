@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
 
 namespace ViewModel
 {
@@ -25,6 +25,7 @@ namespace ViewModel
             set
             {
                 this.contents = value;
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
             }
         }
@@ -39,29 +40,29 @@ namespace ViewModel
 
     public class Derived<IN, OUT> : Cell<OUT>
     {
-       private readonly Cell<IN> dependency;
+        private readonly Cell<IN> dependency;
 
-       private readonly Func<IN, OUT> transformer;
+        private readonly Func<IN, OUT> transformer;
 
-       public Derived(Cell<IN> dependency, Func<IN, OUT> transformer)
-           : base(transformer(dependency.Value))
-       {
-           this.dependency = dependency;
-           this.transformer = transformer;
+        public Derived(Cell<IN> dependency, Func<IN, OUT> transformer)
+            : base(transformer(dependency.Value))
+        {
+            this.dependency = dependency;
+            this.transformer = transformer;
 
-           this.dependency.PropertyChanged += (sender, args) => base.Value = transformer(dependency.Value);
-       }
+            this.dependency.PropertyChanged += (sender, args) => base.Value = transformer(dependency.Value);
+        }
 
-       public override OUT Value
-       {
-           get
-           {
-               return base.Value;
-           }
-           set
-           {
-                   // Not implemented yet
-           }
-       }
-   }
+        public override OUT Value
+        {
+            get
+            {
+                return base.Value;
+            }
+            set
+            {
+                // Not implemented yet
+            }
+        }
+    }
 }
