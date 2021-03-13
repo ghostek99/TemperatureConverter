@@ -13,18 +13,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.ComponentModel;
 
 namespace View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        private double temperatureInKelvin;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        public double TemperatureInKelvin 
+        {
+            get
+            {
+                return temperatureInKelvin;
+            }
+            set
+            {
+                temperatureInKelvin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TemperatureInKelvin)));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class TempConverter : IValueConverter
