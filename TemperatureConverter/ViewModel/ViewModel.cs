@@ -8,9 +8,9 @@ using Model;
 
 namespace ViewModel
 {
-    public class ConverterViewModel : INotifyPropertyChanged
+    public class ConverterViewModel
     {
-        private double temperatureInKelvin;
+        private Cell<double> temperatureInKelvin;
 
         public ConverterViewModel()
         {
@@ -47,8 +47,6 @@ namespace ViewModel
                 yield return Kelvin;
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class TemperatureScaleViewModel : INotifyPropertyChanged
