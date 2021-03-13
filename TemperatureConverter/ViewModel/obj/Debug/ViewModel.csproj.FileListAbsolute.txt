@@ -1,0 +1,9 @@
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\obj\Debug\ViewModel.csprojAssemblyReference.cache
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\obj\Debug\ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\bin\Debug\ViewModel.dll
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\bin\Debug\ViewModel.pdb
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\bin\Debug\Model.dll
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\bin\Debug\Model.pdb
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\obj\Debug\ViewModel.dll
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\ViewModel\obj\Debug\ViewModel.pdb

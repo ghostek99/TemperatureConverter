@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace ViewModel
 {
-    class Cell<T> : INotifyPropertyChanged
+    public class Cell<T> : INotifyPropertyChanged
     {
         private T contents;
 

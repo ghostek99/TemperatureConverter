@@ -10,27 +10,15 @@ namespace ViewModel
 {
     public class ConverterViewModel
     {
-        private Cell<double> temperatureInKelvin;
-
         public ConverterViewModel()
         {
+            this.TemperatureInKelvin = new Cell<double>();
             this.Kelvin = new TemperatureScaleViewModel(this, new KelvinTemperatureScale());
             this.Celsius = new TemperatureScaleViewModel(this, new CelsiusTemperatureScale());
             this.Fahrenheit = new TemperatureScaleViewModel(this, new FahrenheitTemperatureScale());
         }
 
-        public double TemperatureInKelvin
-        {
-            get
-            {
-                return temperatureInKelvin;
-            }
-            set
-            {
-                temperatureInKelvin = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TemperatureInKelvin)));
-            }
-        }
+        public Cell<double> TemperatureInKelvin { get; }
 
         public TemperatureScaleViewModel Kelvin { get; set; }
 
