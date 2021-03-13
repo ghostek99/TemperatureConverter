@@ -9,18 +9,15 @@ namespace Model
     public interface ITemperatureScale
     {
         string Name { get; }
+
         double ConvertToKelvin(double temperature);
+
         double ConvertFromKelvin(double temperature);
     }
 
     public class KelvinTemperatureScale : ITemperatureScale
     {
-        public KelvinTemperatureScale()
-        {
-            this.Name = "Kelvin";
-        }
-
-        public string Name { get; }
+        public string Name => "Kelvin";
 
         public double ConvertFromKelvin(double temperature)
         {
@@ -35,13 +32,7 @@ namespace Model
 
     public class CelsiusTemperatureScale : ITemperatureScale
     {
-    
-        public CelsiusTemperatureScale()
-        {
-            this.Name = "Celsius";
-        }
-
-        public string Name { get; }
+        public string Name => "Celsius";
 
         public double ConvertFromKelvin(double temperature)
         {
@@ -56,24 +47,16 @@ namespace Model
 
     public class FahrenheitTemperatureScale : ITemperatureScale
     {
-
-        public FahrenheitTemperatureScale()
-        {
-            this.Name = "Fahrenheit";
-        }
-
-        public string Name { get; }
+        public string Name => "Fahrenheit";
 
         public double ConvertFromKelvin(double temperature)
         {
-            var fahrenheit = (temperature - 273.15) * 18 / 10 + 32;
-            return fahrenheit;
+            return temperature * 1.8 - 459.67; ;
         }
 
         public double ConvertToKelvin(double temperature)
         {
-            var kelvin = 273.15 + ((temperature - 32.0) * (5.0 / 9.0));
-            return kelvin;
+            return (temperature + 459.67) / 1.8;
         }
     }
 }

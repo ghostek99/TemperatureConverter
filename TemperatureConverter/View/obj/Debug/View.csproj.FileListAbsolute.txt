@@ -18,3 +18,5 @@ C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View
 C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View\bin\Debug\ViewModel.pdb
 C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View\bin\Debug\Model.pdb
 C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View\bin\Debug\Cells.dll
+C:\Users\Ghostek\Dropbox\S4\PVGO\temperature-converter\TemperatureConverter\View\bin\Debug\Cells.pdb
